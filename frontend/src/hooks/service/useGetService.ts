@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
 const useGetService = () => {
-    console.log("Hi0");
     const [loading, setLoading]= useState(false);
     const [services, setServices] = useState([] as any);
 

@@ -21,6 +21,7 @@ export const getPet = async(req: Request, res: Response)=>{
 };
 
 export const getAllPets = async(req: Request, res: Response)=>{
+    console.log("fetching all pets");
     try{
         try{
             const pets: IPet[] = await Pet.find();
