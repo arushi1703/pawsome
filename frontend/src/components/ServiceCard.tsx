@@ -1,4 +1,4 @@
-import REact from 'react';
+import React from 'react';
 
 interface Service {
     id: string;
@@ -20,8 +20,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({service}) => {
             <div className="text-gray-700">
                 <span className="font-semibold">Cost: </span>Rs 2000
             </div>
-            <div className={`text-lg font-semibold ${service.status === 'Pending' ? 'text-yellow-500' : 'text-green-500'}`}>
+            <div className={` text-lg font-semibold ${service.status === 'Pending' ? 'text-yellow-500' : 'text-green-500'}`}>
                 Status: {service.status}
+            </div>
+            <div>
+                <button className=" btn btn-error">Delete</button>
             </div>
         </div>
     );

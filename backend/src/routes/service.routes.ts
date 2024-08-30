@@ -14,5 +14,3 @@ router.patch("/complete/:id", completeService);
 router.delete("/delete/:id", deleteService);
 
 export default router;
-
-//192.168.10.103

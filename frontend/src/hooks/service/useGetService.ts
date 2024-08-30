@@ -13,7 +13,6 @@ const useGetService = () => {
                 console.log("Hi1");
                 const response = await fetch("http://localhost:8080/api/service/getall");
                 console.log("Hi2");
-                alert(response);
                 const data = await response.json();
                 console.log(data);
                 if(data.error){
