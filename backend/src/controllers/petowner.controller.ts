@@ -32,6 +32,7 @@ export const getAllOwners = async(req: Request, res: Response)=>{
 };
 
 export const addOwner = async(req: Request, res: Response)=>{
+    console.log("Adding pet owner");
     try{
         const { name, phoneno, email, password, address } = req.body;
         const existingPetOwner: IPetOwner[] = await PetOwner.find({email});

@@ -22,7 +22,7 @@ export const getServices = async(req: Request, res: Response) => {
 };
 
 export const getAllServices = async(req: Request, res: Response)=>{
-    console.log("Hellloooo");
+    console.log("Fetching all services");
     try{
         const services: IService[] = await Service.find();
         if (services.length === 0) {
