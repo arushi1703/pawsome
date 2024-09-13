@@ -26,7 +26,7 @@ export const getAllPets = async(req: Request, res: Response)=>{
         try{
             const pets: IPet[] = await Pet.find();
             if (pets.length === 0) {
-                return res.status(404).json({ message: "No services found." });
+                return res.status(404).json({ message: "No pets found." });
             }
             const allpets = await Promise.all(
                 pets.map(async (pet) => {
