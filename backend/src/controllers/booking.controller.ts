@@ -91,3 +91,50 @@ export const addBooking = async(req: Request, res: Response)=>{
         res.status(500).json({ error: "Internal Server Error" });
     }
 };
+
+export const deleteBooking = async(req: Request, res: Response)=>{
+    try{
+        const { id: bookingID } = req.params;
+
+        const booking = await Booking.findById(bookingID);
+        if(!booking){
+            res.status(500).json({ error: "No booking to be deleted" });
+            return;
+        }
+        await Booking.deleteOne();
+        res.status(200).json({ message: "Booking successfully deleted" });
+    }
+    catch(error){
+        console.log(`ERROR in deleting, booking controller: ${(error as Error).message}`);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
+
+export const editBooking = async(req: Request, res: Response)=>{
+    try{
+        const { id: bookingID } = req.params;
+        const { bedType, check_in, check_out } = req.body;
+
+        const existingBooking = await Booking.findById(bookingID);
+
+        if (!existingBooking) {
+            return res.status(404).json({ error: "Booking not found" });
+        }
+
+        const updatedBooking = await Booking.findByIdAndUpdate(
+            bookingID,
+            { 
+                bedType : bedType !== undefined ? bedType : existingBooking.bedType,
+                check_in: check_in !== undefined ? check_in : existingBooking.check_in,
+                check_out: check_out !== undefined ? check_out : existingBooking.check_out,
+            },
+            { new : true }
+        );
+
+        res.status(200).json(updatedBooking);
+    }
+    catch(error){
+        console.log(`ERROR in updating, booking controller: ${(error as Error).message}`);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};

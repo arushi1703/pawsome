@@ -4,6 +4,7 @@ import Pet from "../models/pet.model";
 import PetOwner from "../models/petowner.model";
 
 export const getPet = async(req: Request, res: Response)=>{
+    console.log("fetching pet details by id");
     try{
         const { id: petID } = req.params;
         
@@ -55,6 +56,7 @@ export const getAllPets = async(req: Request, res: Response)=>{
 };
 
 export const getPetIDByOwnerID = async(req: Request, res: Response)=>{
+    console.log("Getting petID by ownerID");
     try{
         const { ownerID } = req.params;
 
@@ -111,8 +113,8 @@ export const deletePet = async(req: Request, res: Response)=>{
     try{
         const { id: petID } = req.params;
 
-        const owner = await Pet.findById(petID);
-        if(!owner){
+        const pet = await Pet.findById(petID);
+        if(!pet){
             res.status(500).json({ error: "No pet to be deleted" });
             return;
         }

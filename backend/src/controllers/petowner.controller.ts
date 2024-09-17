@@ -98,10 +98,9 @@ export const deleteOwner = async(req: Request, res: Response)=>{
 };
 
 export const getOwnerIDByEmail = async(req: Request, res: Response)=>{
-    console.log("Hellloooo");
+    console.log("Getting ownerId by email");
     try{
         const { email } = req.params;
-
         const owner = await PetOwner.findOne({ email });
         if (!owner){
             return res.status(404).json({ error: "Owner not found" });
