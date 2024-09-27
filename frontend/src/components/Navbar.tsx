@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import pawsome_logo from '../pawsome_logo.jpg';
 
 const Navbar = () =>{
   const handleClose: any = (e: MouseEvent) => {
     (document.getElementById("my-drawer-3") as HTMLInputElement).checked = false;
   }
   return (
-  <nav>
+  <nav className='p-4 bg-blue-600'>
     <div className="flex-none flex items-center">
         <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost bg-blue-600 w-14">
             <svg
@@ -29,6 +30,9 @@ const Navbar = () =>{
     <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
     <ul className="menu bg-blue-600 min-h-full w-80 p-4 text-white">
       {/* Sidebar content here */}
+      <li>
+        <img src={pawsome_logo} alt="Pawsome Logo" className="w-96 h-48 pb-11"/> 
+      </li>
       <li onClick={handleClose} className="text-xl hover:bg-blue-700 rounded-lg">
         <NavLink to="home" className="p-4 block">
           Dashboard
@@ -40,13 +44,18 @@ const Navbar = () =>{
         </NavLink>
       </li>
       <li onClick={handleClose} className="text-xl hover:bg-blue-700 rounded-lg">
+        <NavLink to="petowners" className="p-4 block">
+          Pet Owners
+        </NavLink>
+      </li>
+      <li onClick={handleClose} className="text-xl hover:bg-blue-700 rounded-lg">
         <NavLink to="service" className="p-4 block">
           Services
         </NavLink>
       </li>
       <li onClick={handleClose} className="text-xl hover:bg-blue-700 rounded-lg">
-        <NavLink to="petowners" className="p-4 block">
-          Pet Owners
+        <NavLink to="booking" className="p-4 block">
+          Bookings
         </NavLink>
       </li>
     </ul>
