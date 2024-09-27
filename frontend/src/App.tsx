@@ -5,6 +5,7 @@ import Service from './pages/Service';
 import Pets from './pages/Pets';
 import Login from './pages/AuthPage';
 import Navbar from './components/Navbar';
+import PetOwners from './pages/PetOwners';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/service" element={<Service />} />
           <Route path="/pets" element={<Pets />} />
+          <Route path="/petowners" element={<PetOwners />} />
         </Routes>
       </div>
     </div>

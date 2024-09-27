@@ -1,29 +1,27 @@
 import React from 'react';
 
-interface Pet {
+interface PetOwner {
     id: string;
     name: string;
-    ownerName: string;
-    age: number;
-    gender: string;
-    notes: string;
+    phoneno: string;
+    email: string;
+    address: string;
 }
 
-interface PetCardProps {
-    pet: Pet;
+interface PetOwnerCardProps {
+    petOwner: PetOwner;
 }
 
-const PetCard: React.FC<PetCardProps> = ({pet}) => {
+const PetOwnerCard: React.FC<PetOwnerCardProps> = ({petOwner}) => {
     return(
         <div className="flex flex-col text-left gap-2 bg-white w-full p-5 rounded-lg shadow-lg">
             <div className="text-xl font-semibold text-blue-500">
-                {pet.name}
+                {petOwner.name}
             </div>
             <div className="text-gray-700 font-semibold">
-                <p>Owner: {pet.ownerName} </p>
-                <p>Age: {pet.age}</p>
-                <p>Gender: {pet.gender}</p>
-                <p>Notes: {pet.notes}</p>
+                <p>Phone No: {petOwner.phoneno} </p>
+                <p>Email: {petOwner.email}</p>
+                <p>address: {petOwner.address}</p>
             </div>
             <div className='flex flex-row gap-3'>
                 <button className='btn btn-success'>Edit</button>
@@ -33,4 +31,4 @@ const PetCard: React.FC<PetCardProps> = ({pet}) => {
     );
 };
 
-export default PetCard;
+export default PetOwnerCard;

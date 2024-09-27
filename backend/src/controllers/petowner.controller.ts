@@ -18,6 +18,7 @@ import PetOwner from "../models/petowner.model";
 };*/
 
 export const getAllOwners = async(req: Request, res: Response)=>{
+    console.log("fetching all owners");
     try{
         const owners: IPetOwner[] = await PetOwner.find();
         if (owners.length === 0) {
@@ -80,6 +81,7 @@ export const addOwner = async(req: Request, res: Response)=>{
 };
 
 export const deleteOwner = async(req: Request, res: Response)=>{
+    console.log("deleting owner");
     try{
         const { id: ownerID } = req.params;
 

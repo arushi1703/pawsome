@@ -44,6 +44,11 @@ const Navbar = () =>{
           Services
         </NavLink>
       </li>
+      <li onClick={handleClose} className="text-xl hover:bg-blue-700 rounded-lg">
+        <NavLink to="petowners" className="p-4 block">
+          Pet Owners
+        </NavLink>
+      </li>
     </ul>
   </div>
 </div>
